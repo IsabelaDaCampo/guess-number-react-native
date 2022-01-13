@@ -5,7 +5,7 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 import BodyText from '../components/BodyText';
-import HeaderText from '../components/HeaderText';
+import TitleText from '../components/TitleText';
 import Colors from '../constants/colors';
 
 const StartGameScreen = props => {
@@ -52,7 +52,7 @@ const StartGameScreen = props => {
       Keyboard.dismiss();
     }}>
       <View style={styles.screen}>
-        <HeaderText style={styles.title}>Start a new game!</HeaderText>
+        <TitleText style={styles.title}>Start a new game!</TitleText>
         <Card style={styles.inputContainer}>
           <BodyText>Select a number</BodyText>
           <Input 
