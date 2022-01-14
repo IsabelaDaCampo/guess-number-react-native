@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text, Image, Dimensions, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 import TitleText from '../components/TitleText';
@@ -26,7 +27,9 @@ const GameOverScreen = props => {
             <Text style={styles.highlight}> {props.userNumber}</Text>.
           </BodyText>
         </View>
-        <MainButton onPress={props.onRestart}>NEW GAME +</MainButton>
+        <MainButton onPress={props.onRestart}>NEW GAME 
+          <Ionicons name="add" size={20} color="white" />
+        </MainButton>
       </View>
     </ScrollView>
   );
@@ -37,6 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 10
   },
   imageContainer: {
     width: Dimensions.get('window').width * 0.7,
