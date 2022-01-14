@@ -1,28 +1,43 @@
 import React from "react";
-import {  View, StyleSheet, Text } from "react-native"
+import {  View, StyleSheet, Text, Platform } from "react-native"
 
 import Colors from '../constants/colors';
 import TitleText from '../components/TitleText';
 
 const Header = props => {
   return (
-    <View style={styles.header}>
+    <View 
+      style={{
+        ...styles.headerBase,
+        ...Platform.select({
+          ios: styles.headerIOS,
+          android: styles.headerAndroid
+        })
+      }}
+    >
       <TitleText style={styles.headerTitle}>{ props.title }</TitleText>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  header: {
+  headerBase: {
     width: '100%',
     height: 90,
     paddingTop: 36,
-    backgroundColor: Colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headerIOS: {
+    backgroundColor: Colors.white,
+    borderBottomColor: Colors.grey,
+    borderBottomWidth: 0,
+  },
+  headerAndroid: {
+    backgroundColor: Colors.primary
+  },
   headerTitle: {
-    color: Colors.white,
+    color: Platform.OS === 'ios' ? Colors.primary : Colors.white,
     fontSize: 18,
     fontFamily: 'open-sans-bold'
   }
